@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Card List View -->
+        <record id="view_card_list" model="ir.ui.view">
+            <field name="name">Card List</field>
+            <field name="model">carddd.card</field>
+            <field name="arch" type="xml">
+                <list string="Daftar Kartu">
+                    <field name="card_uid" />
+                    <field name="card_name" />
+                    <field name="holder_name" />
+                    <field name="card_type" />
+                    <field name="is_active" />
+                    <field name="reading_count" />
+                </list>
+            </field>
+        </record>
+
+        <!-- Card Form View -->
+        <record id="view_card_form" model="ir.ui.view">
+            <field name="name">Card Form</field>
+            <field name="model">carddd.card</field>
+            <field name="arch" type="xml">
+                <form string="Kartu">
+                    <sheet>
+                        <h2>
+                            <field name="card_name" placeholder="Nama Kartu" />
+                        </h2>
+                        <group>
+                            <group>
+                                <field name="card_uid" />
+                                <field name="card_type" />
+                                <field name="is_active" />
+                            </group>
+                            <group>
+                                <field name="holder_name" />
+                                <field name="holder_email" />
+                                <field name="created_date" />
+                            </group>
+                        </group>
+                        <group>
+                            <field name="notes" placeholder="Catatan tambahan..." />
+                        </group>
+
+                        <!-- Tab untuk History Pembacaan -->
+                        <notebook>
+                            <page string="History Pembacaan">
+                                <group>
+                                    <field name="reading_count" readonly="1" />
+                                </group>
+                                <field name="reading_ids" readonly="1">
+                                    <list string="History Pembacaan">
+                                        <field name="reading_time" />
+                                        <field name="reader_device" />
+                                        <field name="location" />
+                                        <field name="status" />
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Card Search View -->
+        <record id="view_card_search" model="ir.ui.view">
+            <field name="name">Card Search</field>
+            <field name="model">carddd.card</field>
+            <field name="arch" type="xml">
+                <search string="Cari Kartu">
+                    <field name="card_uid" />
+                    <field name="card_name" />
+                    <field name="holder_name" />
+                    <separator />
+                    <filter name="filter_active" string="Aktif" domain="[('is_active', '=', True)]" />
+                    <filter name="filter_inactive" string="Tidak Aktif" domain="[('is_active', '=', False)]" />
+                    <separator />
+                    <filter name="filter_employee" string="Karyawan" domain="[('card_type', '=', 'employee')]" />
+                    <filter name="filter_visitor" string="Pengunjung" domain="[('card_type', '=', 'visitor')]" />
+                </search>
+            </field>
+        </record>
+
+        <!-- Card Action -->
+        <record id="action_card" model="ir.actions.act_window">
+            <field name="name">Kartu</field>
+            <field name="res_model">carddd.card</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Klik untuk membuat kartu baru
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu Item -->
+        <menuitem
+            id="menu_card"
+            name="Kartu"
+            action="action_card"
+            sequence="1"
+        />
+
+    </data>
+</odoo>

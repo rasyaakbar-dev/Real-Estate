@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Card Reading List View -->
+        <record id="view_card_reading_list" model="ir.ui.view">
+            <field name="name">Card Reading List</field>
+            <field name="model">carddd.card_reading</field>
+            <field name="arch" type="xml">
+                <list string="Log Pembacaan Kartu">
+                    <field name="reading_time" />
+                    <field name="card_uid" />
+                    <field name="holder_name" />
+                    <field name="reader_device" />
+                    <field name="location" />
+                    <field name="status" />
+                </list>
+            </field>
+        </record>
+
+        <!-- Card Reading Form View -->
+        <record id="view_card_reading_form" model="ir.ui.view">
+            <field name="name">Card Reading Form</field>
+            <field name="model">carddd.card_reading</field>
+            <field name="arch" type="xml">
+                <form string="Pembacaan Kartu">
+                    <sheet>
+                        <h2>
+                            <field name="holder_name" readonly="1" />
+                        </h2>
+                        <group>
+                            <group>
+                                <field name="card_uid" readonly="1" />
+                                <field name="reading_time" readonly="1" />
+                                <field name="status" readonly="1" />
+                            </group>
+                            <group>
+                                <field name="reader_device" readonly="1" />
+                                <field name="location" readonly="1" />
+                            </group>
+                        </group>
+                        <group>
+                            <field name="notes" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Card Reading Graph View -->
+        <record id="view_card_reading_graph" model="ir.ui.view">
+            <field name="name">Card Reading Graph</field>
+            <field name="model">carddd.card_reading</field>
+            <field name="arch" type="xml">
+                <graph string="Statistik Pembacaan">
+                    <field name="reading_time" type="date" />
+                    <field name="status" type="row" />
+                </graph>
+            </field>
+        </record>
+
+        <!-- Card Reading Pivot View -->
+        <record id="view_card_reading_pivot" model="ir.ui.view">
+            <field name="name">Card Reading Pivot</field>
+            <field name="model">carddd.card_reading</field>
+            <field name="arch" type="xml">
+                <pivot string="Analisis Pembacaan">
+                    <field name="reader_device" type="row" />
+                    <field name="status" type="col" />
+                    <field name="id" type="measure" />
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Card Reading Search View -->
+        <record id="view_card_reading_search" model="ir.ui.view">
+            <field name="name">Card Reading Search</field>
+            <field name="model">carddd.card_reading</field>
+            <field name="arch" type="xml">
+                <search string="Cari Pembacaan">
+                    <field name="card_uid" />
+                    <field name="holder_name" />
+                    <field name="reader_device" />
+                    <field name="location" />
+                    <separator />
+                    <filter name="filter_success" string="Berhasil" domain="[('status', '=', 'success')]" />
+                    <filter name="filter_invalid" string="Tidak Valid" domain="[('status', '=', 'invalid')]" />
+                    <filter name="filter_failed" string="Gagal" domain="[('status', '=', 'failed')]" />
+                    <separator />
+                    <filter name="filter_today" string="Hari Ini" domain="[('reading_time', '&gt;=', context_today().strftime('%Y-%m-%d')), ('reading_time', '&lt;', (context_today() + timedelta(days=1)).strftime('%Y-%m-%d'))]" />
+                </search>
+            </field>
+        </record>
+
+        <!-- Card Reading Action -->
+        <record id="action_card_reading" model="ir.actions.act_window">
+            <field name="name">Log Pembacaan</field>
+            <field name="res_model">carddd.card_reading</field>
+            <field name="view_mode">list,form,graph,pivot</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent">
+                    Belum ada log pembacaan. Mulai gunakan card reader untuk membaca kartu.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu Item untuk Pembacaan -->
+        <menuitem
+            id="menu_card_reading"
+            name="Log Pembacaan"
+            action="action_card_reading"
+            sequence="2"
+        />
+
+    </data>
+</odoo>

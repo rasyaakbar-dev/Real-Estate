@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+        <!-- Demo Card 1 -->
+        <record id="demo_card_1" model="carddd.card">
+            <field name="card_uid">UID_001234567890</field>
+            <field name="card_name">Kartu Akses Utama</field>
+            <field name="card_type">employee</field>
+            <field name="holder_name">Ahmad Wijaya</field>
+            <field name="holder_email">ahmad.wijaya@company.com</field>
+            <field name="is_active">True</field>
+            <field name="notes">Kartu karyawan divisi IT</field>
+        </record>
+
+        <!-- Demo Card 2 -->
+        <record id="demo_card_2" model="carddd.card">
+            <field name="card_uid">UID_098765432101</field>
+            <field name="card_name">Kartu Pengunjung</field>
+            <field name="card_type">visitor</field>
+            <field name="holder_name">Budi Santoso</field>
+            <field name="holder_email">budi.santoso@visitor.com</field>
+            <field name="is_active">True</field>
+            <field name="notes">Pengunjung dari perusahaan partner</field>
+        </record>
+
+        <!-- Demo Card 3 -->
+        <record id="demo_card_3" model="carddd.card">
+            <field name="card_uid">UID_556677889900</field>
+            <field name="card_name">Kartu Akses Gudang</field>
+            <field name="card_type">access</field>
+            <field name="holder_name">Siti Nurhaliza</field>
+            <field name="holder_email">siti.nurhaliza@company.com</field>
+            <field name="is_active">True</field>
+            <field name="notes">Akses khusus gudang dan inventory</field>
+        </record>
+
+        <!-- Demo Card Reading 1 -->
+        <record id="demo_reading_1" model="carddd.card_reading">
+            <field name="card_id" ref="demo_card_1" />
+            <field name="reading_time">2026-01-09 08:30:00</field>
+            <field name="reader_device">READER_MAIN_GATE</field>
+            <field name="location">Pintu Utama</field>
+            <field name="status">success</field>
+        </record>
+
+        <!-- Demo Card Reading 2 -->
+        <record id="demo_reading_2" model="carddd.card_reading">
+            <field name="card_id" ref="demo_card_2" />
+            <field name="reading_time">2026-01-09 09:15:00</field>
+            <field name="reader_device">READER_GUEST_GATE</field>
+            <field name="location">Pintu Tamu</field>
+            <field name="status">success</field>
+        </record>
+
+        <!-- Demo Card Reading 3 -->
+        <record id="demo_reading_3" model="carddd.card_reading">
+            <field name="card_id" ref="demo_card_3" />
+            <field name="reading_time">2026-01-09 10:00:00</field>
+            <field name="reader_device">READER_WAREHOUSE</field>
+            <field name="location">Gudang</field>
+            <field name="status">success</field>
+        </record>
+
+    </data>
+</odoo>
+

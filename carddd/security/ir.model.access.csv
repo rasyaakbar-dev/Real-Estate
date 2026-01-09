@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_card_user,access_card_user,model_carddd_card,base.group_user,1,0,0,0
+access_card_manager,access_card_manager,model_carddd_card,base.group_system,1,1,1,1
+access_card_reading_user,access_card_reading_user,model_carddd_card_reading,base.group_user,1,0,0,0
+access_card_reading_manager,access_card_reading_manager,model_carddd_card_reading,base.group_system,1,1,1,1
+
