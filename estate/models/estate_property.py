@@ -12,11 +12,11 @@ class EstateProperty(models.Model):
         ('offer_accepted', 'Offer Accepted'), 
         ('sold', 'Sold'), 
         ('canceled', 'Canceled')],
-        default='new',
-        required=True, copy=False
+        default='new',required=True, copy=False
     )
 
-    name = fields.Char(string="Title", equired=True)
+    name = fields.Char(string="Title",
+                        required=True)
     description = fields.Text()
     postcode = fields.Char(string="Postcode")
     date_availability = fields.Date(
@@ -25,10 +25,14 @@ class EstateProperty(models.Model):
         copy=False
     )
 
-    expected_price = fields.Float(string="Expected Price", required=True)
-    selling_price = fields.Float(string="Selling Price", readonly=True, copy=False)
+    expected_price = fields.Float(string="Expected Price"
+                                  , required=True)
+    selling_price = fields.Float(string="Selling Price"
+                                 , readonly=True
+                                 , copy=False)
 
-    bedrooms = fields.Integer(string="Bedrooms", default=2)
+    bedrooms = fields.Integer(string="Bedrooms"
+                              , default=2)
     living_area = fields.Integer(string="Living Area (sqm)")
     facades = fields.Integer()
     garage = fields.Boolean()
