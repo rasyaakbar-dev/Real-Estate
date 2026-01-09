@@ -5,7 +5,16 @@ class EstateProperty(models.Model):
     _name = "estate.property"
     _description = "Property of Estate"
 
-    active = fields.Boolean(default=True)
+    active = fields.Boolean(default=False)
+    state = fields.Selection(
+        selection=[('new', 'New'), 
+        ('offer_received', 'Offer Received'), 
+        ('offer_accepted', 'Offer Accepted'), 
+        ('sold', 'Sold'), 
+        ('canceled', 'Canceled')],
+        default='new',
+        required=True, copy=False
+    )
 
     name = fields.Char(required=True)
     description = fields.Text()

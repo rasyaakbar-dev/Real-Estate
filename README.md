@@ -1,13 +1,22 @@
-# Real-Estate
+# Real-Estate (Personal Addons)
 
-this a testing for next big project
+A small collection of Odoo addons created for learning and demo purposes.
 
-me and rasya learn about fullstack web use odoo, owl, docker, postgree
+Modules included
+- `card` — simple card/demo module
+- `estate` — basic estate/property management module
 
-this is all shit becouse we dont know how the hell is work with source code pesantren
+Quick start
+1. Copy this folder to your Odoo `addons` path or add its parent to `addons_path`.
+2. Restart the Odoo server.
+3. Update the Apps list and install the `card` and/or `estate` modules from the UI.
 
-tis is so as we thing
+Development notes
+- These modules are intended as examples and learning material for Odoo development.
+- Use Docker or a local Odoo instance for testing; ensure PostgreSQL is available.
 
-2.0
+Contributing
+- Feel free to open issues or pull requests with improvements or fixes.
 
-the test if its go or not, lemetry
+License
+- See repository license or add one if you plan to publish this project.
