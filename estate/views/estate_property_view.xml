@@ -46,6 +46,8 @@
             <list string="Offers">
                 <field name="price" />
                 <field name="partner_id" />
+                <field name="validity" />
+                <field name="date_deadline" />
                 <field name="status" />
             </list>
         </field>
@@ -116,13 +118,12 @@
         <field name="model">estate.property.offer</field>
         <field name="arch" type="xml">
             <form>
-                <group string="Offer">
+                <group>
                     <field name="price" />
-                    <field name="status" />
-                </group>
-                <group string="Partner">
                     <field name="partner_id" />
-                    <field name="property_id" />
+                    <field name="validity" />
+                    <field name="date_deadline" />
+                    <field name="status" />
                 </group>
             </form>
         </field>
