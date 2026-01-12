@@ -12,17 +12,17 @@ class EstateProperty(models.Model):
     name = fields.Char(string="Title", required=True)
 
     # Technical/special fields
-    active = fields.Boolean(default=True)
+    active = fields.Boolean(default=False)
     state = fields.Selection(
         selection=[
-            ('new', 'New'),
-            ('offer_received', 'Offer Received'),
-            ('offer_accepted', 'Offer Accepted'),
-            ('sold', 'Sold'),
-            ('canceled', 'Canceled'),
+            ("new", "New"),
+            ("offer_received", "Offer Received"),
+            ("offer_accepted", "Offer Accepted"),
+            ("sold", "Sold"),
+            ("canceled", "Canceled"),
         ],
         string="Status",
-        default='new',
+        default="new",
         required=True,
         copy=False,
     )
@@ -38,18 +38,24 @@ class EstateProperty(models.Model):
     garden_area = fields.Integer(string="Garden Area (sqm)")
     garden_orientation = fields.Selection(
         selection=[
-            ('north', 'North'),
-            ('south', 'South'),
-            ('east', 'East'),
-            ('west', 'West'),
+            ("north", "North"),
+            ("south", "South"),
+            ("east", "East"),
+            ("west", "West"),
         ],
         string="Garden Orientation",
     )
 
     # Relational fields
-    property_type_id = fields.Many2one("estate.property.type", string="Property Type", required=True)
+    property_type_id = fields.Many2one(
+        "estate.property.type", string="Property Type", required=True
+    )
     buyer = fields.Many2one("res.partner", string="Buyer", copy=False)
-    salesperson = fields.Many2one("res.users", string="Salesperson", default=lambda self: self.env.user)
+    salesperson = fields.Many2one(
+        "res.users", string="Salesperson", default=lambda self: self.env.user
+    )
+    tag_ids = fields.Many2many("estate.property.tag", string="Tags")
+    offer_ids = fields.One2many("estate.property.offer", "property_id", string="Offers")
 
     # Numeric fields
     expected_price = fields.Float(string="Expected Price", required=True)

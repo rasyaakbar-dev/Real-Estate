@@ -23,12 +23,14 @@ A comprehensive Odoo module for managing real estate properties. This project is
 ## 🛠 Installation
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/rasyaakbar-dev/Real-Estate.git
    ```
 
 2. **Add to Odoo Addons Path**:
    Add the parent directory of this repository to your `odoo.conf`:
+
    ```ini
    addons_path = /path/to/odoo/addons,/path/to/Real-Estate
    ```
@@ -57,6 +59,7 @@ A comprehensive Odoo module for managing real estate properties. This project is
 ## 🤝 Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request.
+
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
