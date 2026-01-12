@@ -1,24 +1,20 @@
 {
     'name': "Real Estate",
-    'version': '1.0',
+    'version': '1.0.0',
     'depends': ['base'],
     'author': "Rasya A.N",
     'category': 'Real Estate',
     'summary': "Module for managing real estate properties",
     'description': """
-    This module allows you to manage real estate properties with various attributes, 
-    including offers, tags, and property types.
+This module allows you to manage real estate properties with various attributes,
+including offers, tags, and property types.
     """,
     'website': "https://github.com/rasyaakbar-dev/Real-Estate",
-    'license': 'LGPL-3',
+    'license': 'MIT',
     'application': True,
     'installable': True,
     'data': [
         'security/ir.model.access.csv',
         'views/estate_property_view.xml',
     ],
-    # 'demo': [
-    #     'demo/demo.xml',
-    # ],
 }
-
