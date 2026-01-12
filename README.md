@@ -11,7 +11,7 @@ A comprehensive Odoo module for managing real estate properties. This project is
 | Module | Description | Status |
 | :--- | :--- | :--- |
 | **`estate`** | Core real estate management: Property listings, Offers, Types, and Tags. | 🚧 In Progress |
-| **`card`** | Simple card/demo module for testing basic views and models. | ✅ Stable |
+| **`card`** | Simple card/demo module for testing basic views and models. | 🚧 In Progress |
 
 ## ✨ Features (Estate)
 
@@ -65,4 +65,4 @@ Contributions are welcome! Please fork the repository and submit a pull request.
 
 ## 📄 License
 
-Distributed under the LGPL-3 License.
+Distributed under the MIT License. See `LICENSE` for more information.
