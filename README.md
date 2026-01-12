@@ -1,7 +1,6 @@
 # Real Estate Management 🏠
 
 ![Odoo Version](https://img.shields.io/badge/Odoo-18.0-purple?style=for-the-badge&logo=odoo)
-
 ![License](https://img.shields.io/badge/License-LGPL%203-blue?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Development-orange?style=for-the-badge)
 
