@@ -22,7 +22,7 @@
 
     <!-- List View -->
     <record id="estate_property_view_list" model="ir.ui.view">
-        <field name="name">estate.property.view.tree</field>
+        <field name="name">estate.property.view.list</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <list string="Properties">
@@ -34,12 +34,13 @@
                 <field name="expected_price" />
                 <field name="selling_price" />
                 <field name="date_availability" />
+                <field name="active" />
             </list>
         </field>
     </record>
 
     <record id="estate_property_offer_view_list" model="ir.ui.view">
-        <field name="name">estate.property.offer.view.tree</field>
+        <field name="name">estate.property.offer.view.list</field>
         <field name="model">estate.property.offer</field>
         <field name="arch" type="xml">
             <list string="Offers">
@@ -59,20 +60,25 @@
                 <header>
                     <field name="state" widget="statusbar"
                         statusbar_visible="new,offer_received,offer_accepted,sold" />
+                    <group>
+                        <field name="active" />
+                    </group>
                 </header>
                 <sheet>
                     <h1>
                         <field name="name" />
                     </h1>
                     <field name="tag_ids" widget="many2many_tags" />
+                    <separator />
                     <group>
                         <group>
-                            <field name="property_type_id" options="{'no_create': True}" />
+                            <field name="property_type_id" />
                             <field name="postcode" />
                             <field name="date_availability" />
                         </group>
                         <group>
                             <field name="expected_price" />
+                            <field name="best_price" />
                             <field name="selling_price" />
                         </group>
                     </group>
@@ -87,6 +93,7 @@
                                 <field name="garden" />
                                 <field name="garden_area" />
                                 <field name="garden_orientation" />
+                                <field name="total_area" />
                             </group>
                         </page>
                         <page string="Offers">
