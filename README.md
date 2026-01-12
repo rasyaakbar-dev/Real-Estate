@@ -4,21 +4,30 @@
 ![License](https://img.shields.io/badge/License-LGPL%203-blue?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Development-orange?style=for-the-badge)
 
-A comprehensive Odoo module for managing real estate properties. This project is a personal playground for exploring Odoo development best practices, featuring a `card` demo module and the core `estate` management system.
+A comprehensive Odoo project containing modules for managing real estate properties and card reader systems. This repository serves as a development playground for Odoo best practices, adhering to Odoo 18.0 guidelines.
 
 ## 🚀 Modules
 
-| Module | Description | Status |
-| :--- | :--- | :--- |
-| **`estate`** | Core real estate management: Property listings, Offers, Types, and Tags. | 🚧 In Progress |
-| **`card`** | Simple card/demo module for testing basic views and models. | 🚧 In Progress |
+| Directory | Module Name | Description | Status |
+| :--- | :--- | :--- | :--- |
+| **`estate`** | **Real Estate** | Full-featured property management system with offers, tagging, and workflow automation. | 🚧 In Progress |
+| **`carddd`** | **Card Reader System** | System for managing physical card data, reading logs, and reader device integration. | 🚧 In Progress |
 
-## ✨ Features (Estate)
+## ✨ Features
 
-- **Property Management**: Track property details (Price, Bedrooms, Living Area, Garden).
-- **Offers System**: Manage offers from potential buyers.
-- **Categorization**: Organize properties by Type (House, Apartment) and Tags.
-- **Workflow**: State machine for property status (New, Offer Received, Sold, Canceled).
+### 🏡 Estate Module
+
+- **Property Tracking**: Detailed records for properties including price, bedrooms, living area, garden, and availability.
+- **Offer Management**: Handle property offers from potential buyers with acceptance/refusal workflows.
+- **Smart Categorization**: Organize properties using hierarchical Types (e.g., House, Apartment) and flexible Tags.
+- **Process Workflow**: State machine implementation for property lifecycle (New → Offer Received → Offer Accepted → Sold/Canceled).
+- **Calculated Fields**: Automatic computation of total areas and best offer prices.
+
+### 💳 Card Reader Module (carddd)
+
+- **Card Management**: Store and manage physical card UIDs.
+- **Activity Logging**: Track every card reading event.
+- **Device Integration**: Structure for API integration with card reader hardware.
 
 ## 🛠 Installation
 
@@ -29,25 +38,32 @@ A comprehensive Odoo module for managing real estate properties. This project is
    ```
 
 2. **Add to Odoo Addons Path**:
-   Add the parent directory of this repository to your `odoo.conf`:
+   Add the parent directory of this repository to your `odoo.conf`.
+   *Example:*
 
    ```ini
-   addons_path = /path/to/odoo/addons,/path/to/Real-Estate
+   addons_path = /path/to/odoo/addons,/your/local/path/to/Real-Estate
    ```
 
-3. **Install**:
-   - Update your Odoo Apps list.
-   - Search for "Real Estate".
-   - Click **Install**.
+3. **Install in Odoo**:
+   - Enable **Developer Mode** in Odoo.
+   - Go to **Apps** -> **Update Apps List**.
+   - Search for "Real Estate" or "Card Reader".
+   - Click **Activate**.
 
 ## 📂 Directory Structure
 
 ```plaintext
 /
-├── card/               # Demo module
+├── carddd/             # Card Reader System module
+│   ├── models/         # Card logic
+│   ├── views/          # Card management views
+│   ├── demo/           # Demo data
+│   └── ...
 ├── estate/             # Main Real Estate module
-│   ├── models/         # Database models (Python)
-│   ├── views/          # XML Views & Actions
+│   ├── controllers/    # Web controllers
+│   ├── models/         # Database models (Property, Offer, etc.)
+│   ├── views/          # XML Views (Actions, Menus, Form/Tree views)
 │   ├── security/       # Access rights (IR Model Access)
 │   ├── demo/           # Demo data
 │   ├── __init__.py     # Python package marker
