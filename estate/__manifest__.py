@@ -3,7 +3,7 @@
     'version': '1.0.0',
     'depends': ['base'],
     'author': "Rasya A.N",
-    'category': 'Real Estate',
+    'category': 'Sales',
     'summary': "Module for managing real estate properties",
     'description': """
 This module allows you to manage real estate properties with various attributes,
