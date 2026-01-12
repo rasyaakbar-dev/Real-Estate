@@ -74,9 +74,20 @@
         <field name="name">estate.property.search</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
-            <search string="Properties">
+            <search string="Search Property">
                 <field name="name" />
                 <field name="postcode" />
+                <field name="expected_price" />
+                <field name="bedrooms" />
+                <field name="living_area" />
+                <field name="facades" />
+                <!-- FIX: Invalid domain of <filter name="available_properties">: “[(state, 'in',
+                ['new', 'offer_received'])]” 
+                    Wrong domain formatting.
+                -->
+                <filter name="available_properties" string="Available Properties"
+                    domain="[('state', 'in', ['new', 'offer_received'])]" />
+                <groupby name="postcode" string="Postcode" />
             </search>
         </field>
     </record>

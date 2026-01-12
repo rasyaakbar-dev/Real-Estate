@@ -1,7 +1,7 @@
 # Real Estate Management 🏠
 
 ![Odoo Version](https://img.shields.io/badge/Odoo-18.0-purple?style=for-the-badge&logo=odoo)
-![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+![License](https://img.shields.io/badge/License-LGPL-3-blue?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Development-orange?style=for-the-badge)
 
 A comprehensive Odoo module for managing real estate properties. This project is a personal playground for exploring Odoo development best practices, featuring a `card` demo module and the core `estate` management system.
@@ -65,4 +65,4 @@ Contributions are welcome! Please fork the repository and submit a pull request.
 
 ## 📄 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the LGPL-3 License. See `LICENSE.txt` for more information.

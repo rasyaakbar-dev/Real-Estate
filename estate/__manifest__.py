@@ -10,7 +10,7 @@ This module allows you to manage real estate properties with various attributes,
 including offers, tags, and property types.
     """,
     'website': "https://github.com/rasyaakbar-dev/Real-Estate",
-    'license': 'MIT',
+    'license': 'LGPL-3',
     'application': True,
     'installable': True,
     'data': [
