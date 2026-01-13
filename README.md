@@ -35,7 +35,7 @@ Real estate agencies can use this system to:
 | Module          | Technical Name | Summary                                                        |
 |-----------------|----------------|----------------------------------------------------------------|
 | **Real Estate** | `estate`       | Property management with offers, tags, and workflow automation |
-| **Card Reader** | `carddd`       | Card UID management and reading activity logs                  |
+| **Card Reader** | `card`         | Card UID management and reading activity logs                  |
 
 See individual module `readme/` directories for detailed documentation.
 
