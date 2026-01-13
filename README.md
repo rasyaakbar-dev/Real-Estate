@@ -1,87 +1,106 @@
-# Real Estate Management 🏠
+# Real Estate Management
 
-![Odoo Version](https://img.shields.io/badge/Odoo-18.0-purple?style=for-the-badge&logo=odoo)
-![License](https://img.shields.io/badge/License-LGPL%203-blue?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Development-orange?style=for-the-badge)
+![Odoo Version](https://img.shields.io/badge/Odoo-18.0-purple?style=flat-square&logo=odoo)
+![License](https://img.shields.io/badge/License-LGPL--3-blue?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Development-orange?style=flat-square)
 
-A comprehensive Odoo project containing modules for managing real estate properties and card reader systems. This repository serves as a development playground for Odoo best practices, adhering to Odoo 18.0 guidelines.
+A comprehensive Odoo project for managing real estate properties and card reader systems.
 
-## 🚀 Modules
+## Table of Contents
 
-| Directory | Module Name | Description | Status |
-| :--- | :--- | :--- | :--- |
-| **`estate`** | **Real Estate** | Full-featured property management system with offers, tagging, and workflow automation. | 🚧 In Progress |
-| **`carddd`** | **Card Reader System** | System for managing physical card data, reading logs, and reader device integration. | 🚧 In Progress |
+- [Description](#description)
+- [Modules](#modules)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Credits](#credits)
+- [License](#license)
 
-## ✨ Features
+## Description
 
-### 🏡 Estate Module
+This repository contains Odoo 18.0 modules designed for property management businesses. It provides tools for tracking properties, managing offers, and integrating card reader hardware.
 
-- **Property Tracking**: Detailed records for properties including price, bedrooms, living area, garden, and availability.
-- **Offer Management**: Handle property offers from potential buyers with acceptance/refusal workflows.
-- **Smart Categorization**: Organize properties using hierarchical Types (e.g., House, Apartment) and flexible Tags.
-- **Process Workflow**: State machine implementation for property lifecycle (New → Offer Received → Offer Accepted → Sold/Canceled).
-- **Calculated Fields**: Automatic computation of total areas and best offer prices.
+### Business Use Case
 
-### 💳 Card Reader Module (carddd)
+Real estate agencies can use this system to:
 
-- **Card Management**: Store and manage physical card UIDs.
-- **Activity Logging**: Track every card reading event.
-- **Device Integration**: Structure for API integration with card reader hardware.
+- Track property listings with detailed attributes
+- Manage buyer offers with acceptance/refusal workflows
+- Categorize properties using types and tags
+- Monitor property lifecycle from listing to sale
 
-## 🛠 Installation
+## Modules
 
-1. **Clone the repository**:
+| Module          | Technical Name | Summary                                                        |
+|-----------------|----------------|----------------------------------------------------------------|
+| **Real Estate** | `estate`       | Property management with offers, tags, and workflow automation |
+| **Card Reader** | `carddd`       | Card UID management and reading activity logs                  |
+
+See individual module `readme/` directories for detailed documentation.
+
+## Installation
+
+1. **Clone the repository**
 
    ```bash
    git clone https://github.com/rasyaakbar-dev/Real-Estate.git
    ```
 
-2. **Add to Odoo Addons Path**:
-   Add the parent directory of this repository to your `odoo.conf`.
-   *Example:*
+2. **Add to Odoo addons path** in `odoo.conf`:
 
    ```ini
-   addons_path = /path/to/odoo/addons,/your/local/path/to/Real-Estate
+   addons_path = /path/to/odoo/addons,/path/to/Real-Estate
    ```
 
-3. **Install in Odoo**:
-   - Enable **Developer Mode** in Odoo.
-   - Go to **Apps** -> **Update Apps List**.
-   - Search for "Real Estate" or "Card Reader".
-   - Click **Activate**.
+3. **Install modules**
+   - Enable Developer Mode in Odoo
+   - Go to **Apps** → **Update Apps List**
+   - Search for "Real Estate" or "Card Reader"
+   - Click **Activate**
 
-## 📂 Directory Structure
+## Configuration
 
-```plaintext
-/
-├── carddd/             # Card Reader System module
-│   ├── models/         # Card logic
-│   ├── views/          # Card management views
-│   ├── demo/           # Demo data
-│   └── ...
-├── estate/             # Main Real Estate module
-│   ├── controllers/    # Web controllers
-│   ├── models/         # Database models (Property, Offer, etc.)
-│   ├── views/          # XML Views (Actions, Menus, Form/Tree views)
-│   ├── security/       # Access rights (IR Model Access)
-│   ├── demo/           # Demo data
-│   ├── __init__.py     # Python package marker
-│   └── __manifest__.py # Module metadata
-├── .gitignore          # Git ignore rules
-└── README.md           # Project documentation
-```
+After installation:
 
-## 🤝 Contributing
+1. Go to **Real Estate** menu
+2. Configure **Property Types** (House, Apartment, etc.)
+3. Create **Property Tags** for categorization
 
-Contributions are welcome! Please fork the repository and submit a pull request.
+## Usage
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+### Property Management
+
+1. Create a new property with details (bedrooms, living area, price)
+2. Receive and manage offers from potential buyers
+3. Accept or refuse offers to progress property state
+4. Mark properties as Sold or Canceled
+
+### Card Reader
+
+1. Register cards with their UIDs
+2. View reading activity logs
+
+## Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/NewFeature`)
+3. Commit your changes (`git commit -m 'Add NewFeature'`)
+4. Push to the branch (`git push origin feature/NewFeature`)
 5. Open a Pull Request
 
-## 📄 License
+## Credits
 
-Distributed under the LGPL-3 License. See `LICENSE.txt` for more information.
+### Authors
+
+- Rasya A.N
+
+### Contributors
+
+- Rasya A.N - Initial development
+
+## License
+
+Distributed under the **LGPL-3** License. See [LICENSE.txt](LICENSE.txt) for details.
