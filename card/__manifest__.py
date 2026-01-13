@@ -12,8 +12,8 @@
     - Log aktivitas pembacaan
     """,
 
-    'author': "Odoo Developer",
-    'website': "https://www.yourcompany.com",
+    'author': "Muhammad Sulthan",
+    'website': "ABMATUKAM",
 
     'category': 'Tools',
     'version': '1.0',
