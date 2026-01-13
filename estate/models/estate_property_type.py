@@ -6,5 +6,4 @@ class EstatePropertyType(models.Model):
     _description = "Real Estate Property Type"
     _order = "id desc"
 
-    # Main identifier field
     name = fields.Char(required=True)

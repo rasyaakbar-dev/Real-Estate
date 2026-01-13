@@ -32,7 +32,7 @@ Real estate agencies can use this system to:
 
 ## Modules
 
-| Module          | Technical Name | Summary                                                        |
+| Module          | Technical Name     Summary                                                        |
 |-----------------|----------------|----------------------------------------------------------------|
 | **Real Estate** | `estate`       | Property management with offers, tags, and workflow automation |
 | **Card Reader** | `carddd`       | Card UID management and reading activity logs                  |
@@ -96,10 +96,12 @@ Contributions are welcome!
 ### Authors
 
 - Rasya A.N
+- Thanzero07
 
 ### Contributors
 
 - Rasya A.N - Initial development
+- Thanzero07 - Card module development
 
 ## License
 
