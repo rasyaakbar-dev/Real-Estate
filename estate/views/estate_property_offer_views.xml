@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+        <!-- view(s)-->
+        <!-- list view -->
+        <record id="estate_property_offer_view_list" model="ir.ui.view">
+            <field name="name">estate.property.offer.view.list</field>
+            <field name="model">estate.property.offer</field>
+            <field name="arch" type="xml">
+                <list string="Offers">
+                    <field name="price" />
+                    <field name="partner_id" />
+                    <field name="validity" />
+                    <field name="date_deadline" />
+                    <button name="action_accept" type="object" icon="fa-check" title="Accept" />
+                    <button name="action_refuse" type="object" icon="fa-times" title="Refuse" />
+                    <field name="status" />
+                </list>
+            </field>
+        </record>
+
+        <!-- form view -->
+        <record id="estate_property_offer_view_form" model="ir.ui.view">
+            <field name="name">estate.property.offer.view.form</field>
+            <field name="model">estate.property.offer</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="price" />
+                        <field name="partner_id" />
+                        <field name="validity" />
+                        <field name="date_deadline" />
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

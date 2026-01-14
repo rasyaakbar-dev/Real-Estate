@@ -7,7 +7,7 @@ from odoo.exceptions import UserError
 class EstatePropertyOffer(models.Model):
     _name = "estate.property.offer"
     _description = "Real Estate Property Offer"
-    _order = "id desc"
+    _order = "price desc"
 
     _sql_constraints = [
         (
