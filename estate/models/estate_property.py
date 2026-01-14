@@ -1,24 +1,29 @@
 from dateutil.relativedelta import relativedelta
 
-from dateutil.relativedelta import relativedelta
-
 from odoo import api, fields, models
 from odoo.exceptions import UserError, ValidationError
 from odoo.tools import float_compare, float_is_zero
 
 
 class EstateProperty(models.Model):
+    # Private attributes
     _name = "estate.property"
     _description = "Properties of Real Estate"
     _order = "id desc"
-
     _sql_constraints = [
-        ("check_expected_price", "CHECK(expected_price > 0)",
-            "The expected price must be strictly positive",),
-        ("check_selling_price", "CHECK(selling_price >= 0)",
-            "The selling price must be positive",),
+        (
+            "check_expected_price",
+            "CHECK(expected_price > 0)",
+            "The expected price must be strictly positive",
+        ),
+        (
+            "check_selling_price",
+            "CHECK(selling_price >= 0)",
+            "The selling price must be positive",
+        ),
     ]
 
+    # Field declarations
     name = fields.Char(string="Title", required=True)
     description = fields.Text(string="Description")
     postcode = fields.Char(string="Postcode")
@@ -44,7 +49,7 @@ class EstateProperty(models.Model):
         ],
         string="Garden Orientation",
     )
-    active = fields.Boolean(default=False)
+    active = fields.Boolean(string="Active", default=False)
     state = fields.Selection(
         selection=[
             ("new", "New"),
@@ -66,10 +71,15 @@ class EstateProperty(models.Model):
         "res.users", string="Salesperson", default=lambda self: self.env.user
     )
     tag_ids = fields.Many2many("estate.property.tag", string="Tags")
-    offer_ids = fields.One2many("estate.property.offer", "property_id", string="Offers")
-    total_area = fields.Integer(compute="_compute_total_area", string="Total Area (sqm)")
+    offer_ids = fields.One2many(
+        "estate.property.offer", "property_id", string="Offers"
+    )
+    total_area = fields.Integer(
+        string="Total Area (sqm)", compute="_compute_total_area"
+    )
     best_price = fields.Float(string="Best Price", compute="_compute_best_price")
 
+    # Compute methods
     @api.depends("living_area", "garden_area")
     def _compute_total_area(self):
         for record in self:
@@ -80,6 +90,7 @@ class EstateProperty(models.Model):
         for record in self:
             record.best_price = max(record.offer_ids.mapped("price"), default=0.0)
 
+    # Onchange methods
     @api.onchange("garden")
     def _onchange_garden(self):
         if self.garden:
@@ -89,6 +100,7 @@ class EstateProperty(models.Model):
             self.garden_area = 0
             self.garden_orientation = False
 
+    # Constraint methods
     @api.constrains("selling_price", "expected_price")
     def _check_selling_price(self):
         for record in self:
@@ -106,6 +118,7 @@ class EstateProperty(models.Model):
                     "You must reduce the expected price if you want to accept this offer."
                 )
 
+    # Action methods
     def action_sold(self):
         for record in self:
             if record.state == "canceled":
