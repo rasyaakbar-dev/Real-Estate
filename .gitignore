@@ -229,3 +229,7 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Odoo config
+odoo.conf
+*odoo.conf
